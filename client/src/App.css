@@ -1,38 +1,182 @@
-.App {
-  text-align: center;
+ /* styles.css */
+/* .grid {
+  display: grid;
+  grid-template-columns: 320px 200px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.right-column {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-board {
+  border: solid 2px;
+}
+ 
+.play-button {
+  background-color: #4caf50;
+  font-size: 16px;
+  padding: 15px 30px;
+  cursor: pointer;
+}*/
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+-moz-osx-font-smoothing: none;
+}
+
+h1 {
+  font-size: 56px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+p {
+  font-size: 16px;
+}
+
+.navbar {
+  background-color: lightgrey;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar ul {
+  /* Let's reset the margin and padding of the list so it's is flush. */
+   margin: 0;
+   padding: 0;
+   /* Let's remove the bullet points */
+   list-style-type: none;
+   /* display the list flex and align the items centered */
+   display: flex;
+   align-items:center;
+ }
+
+ .navbar ul li {
+   padding: 2vw;
+ }
+
+.start-button {
+  text-align: center;
+  padding: 10vw;
+  border: none;
+  text-decoration: none;
+  font-size: 32px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tetris-row {
+  display: flex;
+}
+
+.tetris-board {
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid grey;
+}
+
+.tetris-cell {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  color: grey;
+}
+
+.tetris-cell-0 {
+  background-color: black;
+}
+
+.tetris-cell-1 {
+  --color: blue;
+  --darkColor: darkblue;
+  --lightColor: lightblue;
+  --borderwidth: 7px;
+  background-color: var(--color);
+  border-bottom: var(--borderwidth) solid var(--darkColor);
+  border-right: var(--borderwidth) solid var(--darkColor);
+  border-top: var(--borderwidth) solid var(--lightColor);
+  border-left: var(--borderwidth) solid var(--lightColor);
+}
+
+.tetris-cell-2 {
+  --color: green;
+  --darkColor: darkgreen;
+  --lightColor: lightgreen;
+  --borderwidth: 7px;
+  background-color: var(--color);
+  border-bottom: var(--borderwidth) solid var(--darkColor);
+  border-right: var(--borderwidth) solid var(--darkColor);
+  border-top: var(--borderwidth) solid var(--lightColor);
+  border-left: var(--borderwidth) solid var(--lightColor);
+}
+
+.tetris-cell-3 {
+  --color: orange;
+  --darkColor: brown;
+  --lightColor: rgb(255, 212, 131);
+  --borderwidth: 7px;
+  background-color: var(--color);
+  border-bottom: var(--borderwidth) solid var(--darkColor);
+  border-right: var(--borderwidth) solid var(--darkColor);
+  border-top: var(--borderwidth) solid var(--lightColor);
+  border-left: var(--borderwidth) solid var(--lightColor);
+}
+
+.tetris-cell-4 {
+  --color: pink;
+  --darkColor: purple;
+  --lightColor: rgb(244, 238, 239);
+  --borderwidth: 7px;
+  background-color: var(--color);
+  border-bottom: var(--borderwidth) solid var(--darkColor);
+  border-right: var(--borderwidth) solid var(--darkColor);
+  border-top: var(--borderwidth) solid var(--lightColor);
+  border-left: var(--borderwidth) solid var(--lightColor);
+}
+
+.tetris-cell-5 {
+  --color: cyan;
+  --darkColor: rgb(0, 182, 182);
+  --lightColor: rgb(175, 255, 255);
+  --borderwidth: 7px;
+  background-color: var(--color);
+  border-bottom: var(--borderwidth) solid var(--darkColor);
+  border-right: var(--borderwidth) solid var(--darkColor);
+  border-top: var(--borderwidth) solid var(--lightColor);
+  border-left: var(--borderwidth) solid var(--lightColor);
+}
+
+.tetris-cell-6 {
+  --color: red;
+  --darkColor: rgb(0, 182, 182);
+  --lightColor: rgb(175, 255, 255);
+  --borderwidth: 7px;
+  background-color: var(--color);
+}
+
+.tetris-cell-7 {
+  --color: magenta;
+  --darkColor: rgb(0, 182, 182);
+  --lightColor: rgb(175, 255, 255);
+  --borderwidth: 7px;
+  background-color: var(--color);
+}
+
+.tetris-score-label {
+  font-size: medium;
+}
+
+.tetris-parent {
+  display: flex;
+}
+
+element.style {
+  width: 44px;
+  left: 0px;
 }
