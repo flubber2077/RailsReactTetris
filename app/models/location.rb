@@ -1,4 +1,4 @@
 class Location < ApplicationRecord
-    belongs_to :user
-    has_many :points, through: :users
+    has_many :points
+    has_many :users, through: :points
 end
