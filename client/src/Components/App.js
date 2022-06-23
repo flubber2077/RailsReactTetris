@@ -1,23 +1,75 @@
+import {useEffect, useState} from 'react'
 import Board from "./board.js";
 import NavBar from "./NavBar.js";
 import '../App.css';
 import { Route, Routes, NavLink } from 'react-router-dom';
+import Auth from './Auth'
+import Login from './LogIn'
 
 function App() {
+    const [errors, setErrors] = useState(false)
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [user, setUser] = useState(null);
+  
+    useEffect(() => {
+      fetch('/authorized_user')
+      .then((res) => {
+        if (res.ok) {
+          res.json()
+          .then((user) => {
+            setIsAuthenticated(true);
+            setUser(user);
+          });
+        }
+      });
+
+      fetch('/game')
+      .then(res => res.json())
+      .then(setGame);
+
+}, [])
+
+function handlePost(obj){
+    fetch('/game',{
+      method:'POST',
+      headers: {'Content-Type': 'application/json'},
+      body:JSON.stringify(obj)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.errors){
+        setErrors(data.errors)
+      } else {
+        setGame([...game,data])
+      }
+    })
+}
+
+
+
+if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
+
     return (
         <div>
             <header>
                 <h1>tetr.js</h1>
                 <h2>by <a href="https://github.com/montgomerykate">K. Montgomery</a> and <a href="https://github.com/flubber2077">D. Jordan</a></h2>
-                {/* <NavBar /> */}
+                <NavBar />
             </header>
 
-            {/* <Routes>
-                <Route path="/game"> */}
+            <Route path="/sign_up">
+            <Auth />
+            </Route>
+                <Route path="/login">
+                <Login />
+            </Route>
+
+            <Routes>
+                <Route path="/game">
                     <div className="tetris-parent" >
-                        <Board />
+                        <Board handlePost={handlePost} errors={errors} />
                     </div>
-                {/* </Route>
+                </Route>
 
                 <Route path='/'>
                     <div className='start-button'>
@@ -33,7 +85,7 @@ function App() {
 
                     </div>
                 </Route>
-            </Routes> */}
+            </Routes>
         </div>
     );
 }
