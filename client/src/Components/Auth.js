@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 
 function Auth({setUser, setIsAuthenticated}) {
     const [username, setUsername] = useState('')
-    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
    
     const [errors, setErrors] = useState([])
@@ -11,7 +10,6 @@ function Auth({setUser, setIsAuthenticated}) {
         e.preventDefault()
         const user = {
             name: username,
-            email,
             password
         }
        
@@ -35,6 +33,7 @@ function Auth({setUser, setIsAuthenticated}) {
         })
     }
     return (
+
     //     <> 
     //     <h1>Sign UP</h1>
     //     <form onSubmit={onSubmit}>

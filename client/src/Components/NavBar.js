@@ -1,10 +1,10 @@
 import React from "react";
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function NavBar() {
 
     return (
-        <nav class="navbar">
+        <nav className="navbar">
             <ul>
                 <li>
                     <NavLink to='/game'>Game</NavLink>
