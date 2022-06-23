@@ -19,7 +19,6 @@ function NavBar() {
                     <NavLink to='/'>Login</NavLink>
                 </li>
             </ul>
-
         </nav>
     );
 }

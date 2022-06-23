@@ -7,45 +7,45 @@ import Auth from './Auth'
 import Login from './LogIn'
 
 function App() {
-    const [errors, setErrors] = useState(false)
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState(null);
+//     const [errors, setErrors] = useState(false)
+//     const [isAuthenticated, setIsAuthenticated] = useState(false);
+//     const [user, setUser] = useState(null);
   
-    useEffect(() => {
-      fetch('/authorized_user')
-      .then((res) => {
-        if (res.ok) {
-          res.json()
-          .then((user) => {
-            setIsAuthenticated(true);
-            setUser(user);
-          });
-        }
-      });
-      fetch('/game')
-      .then(res => res.json())
-      .then(setGame);
-}, [])
+//     useEffect(() => {
+//       fetch('/authorized_user')
+//       .then((res) => {
+//         if (res.ok) {
+//           res.json()
+//           .then((user) => {
+//             setIsAuthenticated(true);
+//             setUser(user);
+//           });
+//         }
+//       });
+//       fetch('/game')
+//       .then(res => res.json())
+//       .then(setGame);
+// }, [])
 
-function handlePost(obj){
-    fetch('/game',{
-      method:'POST',
-      headers: {'Content-Type': 'application/json'},
-      body:JSON.stringify(obj)
-    })
-    .then(res => res.json())
-    .then(data => {
-      if(data.errors){
-        setErrors(data.errors)
-      } else {
-        setGame([...game,data])
-      }
-    })
-}
+// function handlePost(obj){
+//     fetch('/game',{
+//       method:'POST',
+//       headers: {'Content-Type': 'application/json'},
+//       body:JSON.stringify(obj)
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//       if(data.errors){
+//         setErrors(data.errors)
+//       } else {
+//         setGame([...game,data])
+//       }
+//     })
+// }
 
 
 
-if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
+// if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
 
     return (
         <div>
@@ -55,12 +55,7 @@ if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={s
                 <NavBar />
             </header>
 
-            <Route path="/sign_up">
-            <Auth />
-            </Route>
-                <Route path="/login">
-                <Login />
-            </Route>
+
 
             <Routes>
                 <Route path="/game">
@@ -68,6 +63,13 @@ if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={s
                         <Board handlePost={handlePost} errors={errors} />
                     </div>
                 </Route>
+
+                <Route path="/sign_up">
+            <Auth />
+            </Route>
+                <Route path="/login">
+                <Login />
+            </Route>
 
                 <Route path='/'>
                     <div className='start-button'>

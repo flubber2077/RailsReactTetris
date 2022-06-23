@@ -35,29 +35,29 @@ function Auth({setUser, setIsAuthenticated}) {
         })
     }
     return (
-        <> 
-        <h1>Sign UP</h1>
-        <form onSubmit={onSubmit}>
-        <label>
-          Username
+    //     <> 
+    //     <h1>Sign UP</h1>
+    //     <form onSubmit={onSubmit}>
+    //     <label>
+    //       Username
    
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <label>
-         email
+    //       <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+    //     </label>
+    //     <label>
+    //      email
     
-        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label>
-         Password
+    //     <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+    //     </label>
+    //     <label>
+    //      Password
     
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
+    //     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+    //     </label>
        
-        <input type="submit" value="Sign up!" />
-      </form>
-      { Object.keys(errors) ? Object.keys(errors).map((key, index) => <div>{key+': ' + Object.values(errors)[index]}</div>) : null }
-      </>
+    //     <input type="submit" value="Sign up!" />
+    //   </form>
+    //   { Object.keys(errors) ? Object.keys(errors).map((key, index) => <div>{key+': ' + Object.values(errors)[index]}</div>) : null }
+    //   </>
     )
 }
 
