@@ -1,51 +1,51 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import Board from "./board.js";
 import NavBar from "./NavBar.js";
 import '../App.css';
 import { Route, Routes, NavLink } from 'react-router-dom';
 import Auth from './Auth'
-import Login from './LogIn'
+// import Login from './LogIn'
 
 function App() {
-    const [errors, setErrors] = useState(false)
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState(null);
-  
-    useEffect(() => {
-      fetch('/authorized_user')
-      .then((res) => {
-        if (res.ok) {
-          res.json()
-          .then((user) => {
-            setIsAuthenticated(true);
-            setUser(user);
-          });
-        }
-      });
-      fetch('/game')
-      .then(res => res.json())
-      .then(setGame);
-}, [])
+    //     const [errors, setErrors] = useState(false)
+    //     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    //     const [user, setUser] = useState(null);
 
-function handlePost(obj){
-    fetch('/game',{
-      method:'POST',
-      headers: {'Content-Type': 'application/json'},
-      body:JSON.stringify(obj)
-    })
-    .then(res => res.json())
-    .then(data => {
-      if(data.errors){
-        setErrors(data.errors)
-      } else {
-        setGame([...game,data])
-      }
-    })
-}
+    //     useEffect(() => {
+    //       fetch('/authorized_user')
+    //       .then((res) => {
+    //         if (res.ok) {
+    //           res.json()
+    //           .then((user) => {
+    //             setIsAuthenticated(true);
+    //             setUser(user);
+    //           });
+    //         }
+    //       });
+    //       fetch('/game')
+    //       .then(res => res.json())
+    //       .then(setGame);
+    // }, [])
+
+    // function handlePost(obj){
+    //     fetch('/game',{
+    //       method:'POST',
+    //       headers: {'Content-Type': 'application/json'},
+    //       body:JSON.stringify(obj)
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       if(data.errors){
+    //         setErrors(data.errors)
+    //       } else {
+    //         setGame([...game,data])
+    //       }
+    //     })
+    // }
 
 
 
-if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
+    // if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
 
     return (
         <div>
@@ -55,33 +55,16 @@ if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={s
                 <NavBar />
             </header>
 
-            <Route path="/sign_up">
+            {/* <Route path="/sign_up">
             <Auth />
             </Route>
                 <Route path="/login">
                 <Login />
-            </Route>
+            </Route> */}
 
             <Routes>
-                <Route path="/game">
-                    <div className="tetris-parent" >
-                        <Board handlePost={handlePost} errors={errors} />
-                    </div>
-                </Route>
-
-                <Route path='/'>
-                    <div className='start-button'>
-                        <NavLink to ='/game'>
-                            START
-                        </NavLink>
-                        <h4>Controls</h4>
-                        <p>Left/Right: Move</p>
-                        <p>Up: Rotate</p>
-                        <p>Down: Advance</p>
-                        <p>Complete rows in order to clear them, clear four rows at once for the most points</p>
-                        <p>A block landing on the top row is Game Over</p>
-                    </div>
-                </Route>
+                <Route path="/game" element={<Board className="tetris-parent" />} />
+                <Route path='/' element={<OpeningMenu />} />
             </Routes>
         </div>
     );
