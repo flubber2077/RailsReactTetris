@@ -6,6 +6,7 @@ import { Route, Routes, NavLink } from 'react-router-dom';
 import Login from './LogIn'
 
 function App() {
+
     const [errors, setErrors] = useState(false)
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
@@ -46,6 +47,7 @@ function App() {
 
     // if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
 
+
     return (
         <div>
             <header>
@@ -53,6 +55,7 @@ function App() {
                 <h2>by <a href="https://github.com/montgomerykate">K. Montgomery</a> and <a href="https://github.com/flubber2077">D. Jordan</a></h2>
                 <NavBar />
             </header>
+
 
             <Routes>
                 <Route path="/" element={
