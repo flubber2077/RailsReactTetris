@@ -3,44 +3,43 @@ import Board from "./board.js";
 import NavBar from "./NavBar.js";
 import '../App.css';
 import { Route, Routes, NavLink } from 'react-router-dom';
-import Auth from './Auth'
-// import Login from './LogIn'
+import Login from './LogIn'
 
 function App() {
-    //     const [errors, setErrors] = useState(false)
-    //     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    //     const [user, setUser] = useState(null);
+    const [errors, setErrors] = useState(false)
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [user, setUser] = useState(null);
 
-    //     useEffect(() => {
-    //       fetch('/authorized_user')
-    //       .then((res) => {
-    //         if (res.ok) {
-    //           res.json()
-    //           .then((user) => {
-    //             setIsAuthenticated(true);
-    //             setUser(user);
-    //           });
-    //         }
-    //       });
-    //       fetch('/game')
-    //       .then(res => res.json())
-    //       .then(setGame);
+    // useEffect(() => {
+    //     fetch('/authorized_user')
+    //         .then((res) => {
+    //             if (res.ok) {
+    //                 res.json()
+    //                     .then((user) => {
+    //                         setIsAuthenticated(true);
+    //                         setUser(user);
+    //                     });
+    //             }
+    //         });
+    //     fetch('/game')
+    //         .then(res => res.json())
+    //         .then();
     // }, [])
 
-    // function handlePost(obj){
-    //     fetch('/game',{
-    //       method:'POST',
-    //       headers: {'Content-Type': 'application/json'},
-    //       body:JSON.stringify(obj)
+    // function handlePost(obj) {
+    //     fetch('/game', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(obj)
     //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       if(data.errors){
-    //         setErrors(data.errors)
-    //       } else {
-    //         setGame([...game,data])
-    //       }
-    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.errors) {
+    //                 setErrors(data.errors)
+    //             } else {
+    //                 return (<StartMenu />)
+    //             }
+    //         })
     // }
 
 
@@ -55,21 +54,19 @@ function App() {
                 <NavBar />
             </header>
 
-            {/* <Route path="/sign_up">
-            <Auth />
-            </Route>
-                <Route path="/login">
-                <Login />
-            </Route> */}
-
             <Routes>
+                <Route path="/" element={
+                    <div>
+                        <Login />
+                    </div>
+                } />
                 <Route path="/game" element={<Board className="tetris-parent" />} />
-                <Route path='/' element={<OpeningMenu />} />
+                <Route path='/start' element={<StartMenu />} />
             </Routes>
         </div>
     );
 
-    function OpeningMenu() {
+    function StartMenu() {
         return (
             <div className='start-button'>
                 <NavLink to='/game'>

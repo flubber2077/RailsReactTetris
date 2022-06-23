@@ -21,6 +21,14 @@
   cursor: pointer;
 }*/
 
+:root {
+  --light: 90%;
+  --dark: 30%;
+  --reg: 50%;
+  --saturation:100%;
+  --borderwidth: 7px;
+}
+
 body {
   font-family: 'Press Start 2P', cursive;
   font-smooth: never;
@@ -93,87 +101,66 @@ p {
 }
 
 .tetris-cell-1 {
-  --color: blue;
-  --darkColor: darkblue;
-  --lightColor: lightblue;
-  --borderwidth: 7px;
-  background-color: var(--color);
-  border-bottom: var(--borderwidth) solid var(--darkColor);
-  border-right: var(--borderwidth) solid var(--darkColor);
-  border-top: var(--borderwidth) solid var(--lightColor);
-  border-left: var(--borderwidth) solid var(--lightColor);
+  --hue: 0;
+  background-color: hsl(var(--hue), var(--saturation), var(--reg));
+  border-bottom: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-right: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-top: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
+  border-left: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
 }
 
 .tetris-cell-2 {
-  --color: green;
-  --darkColor: darkgreen;
-  --lightColor: lightgreen;
-  --borderwidth: 7px;
-  background-color: var(--color);
-  border-bottom: var(--borderwidth) solid var(--darkColor);
-  border-right: var(--borderwidth) solid var(--darkColor);
-  border-top: var(--borderwidth) solid var(--lightColor);
-  border-left: var(--borderwidth) solid var(--lightColor);
+  --hue: 50;
+  background-color: hsl(var(--hue), var(--saturation), var(--reg));
+  border-bottom: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-right: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-top: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
+  border-left: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
 }
 
 .tetris-cell-3 {
-  --color: orange;
-  --darkColor: brown;
-  --lightColor: rgb(255, 212, 131);
-  --borderwidth: 7px;
-  background-color: var(--color);
-  border-bottom: var(--borderwidth) solid var(--darkColor);
-  border-right: var(--borderwidth) solid var(--darkColor);
-  border-top: var(--borderwidth) solid var(--lightColor);
-  border-left: var(--borderwidth) solid var(--lightColor);
+  --hue: 100;
+  background-color: hsl(var(--hue), var(--saturation), var(--reg));
+  border-bottom: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-right: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-top: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
+  border-left: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
 }
 
 .tetris-cell-4 {
-  --color: pink;
-  --darkColor: purple;
-  --lightColor: rgb(244, 238, 239);
-  --borderwidth: 7px;
-  background-color: var(--color);
-  border-bottom: var(--borderwidth) solid var(--darkColor);
-  border-right: var(--borderwidth) solid var(--darkColor);
-  border-top: var(--borderwidth) solid var(--lightColor);
-  border-left: var(--borderwidth) solid var(--lightColor);
+  --hue: 150;
+  background-color: hsl(var(--hue), var(--saturation), var(--reg));
+  border-bottom: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-right: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-top: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
+  border-left: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
 }
 
 .tetris-cell-5 {
-  --color: cyan;
-  --darkColor: rgb(0, 182, 182);
-  --lightColor: rgb(175, 255, 255);
-  --borderwidth: 7px;
-  background-color: var(--color);
-  border-bottom: var(--borderwidth) solid var(--darkColor);
-  border-right: var(--borderwidth) solid var(--darkColor);
-  border-top: var(--borderwidth) solid var(--lightColor);
-  border-left: var(--borderwidth) solid var(--lightColor);
+  --hue: 200;
+  background-color: hsl(var(--hue), var(--saturation), var(--reg));
+  border-bottom: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-right: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-top: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
+  border-left: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
 }
 
 .tetris-cell-6 {
-  --color: red;
-  --darkColor: darkred;
-  --lightColor: pink;
-  --borderwidth: 7px;
-  background-color: var(--color);
-  border-bottom: var(--borderwidth) solid var(--darkColor);
-  border-right: var(--borderwidth) solid var(--darkColor);
-  border-top: var(--borderwidth) solid var(--lightColor);
-  border-left: var(--borderwidth) solid var(--lightColor);
+  --hue: 250;
+  background-color: hsl(var(--hue), var(--saturation), var(--reg));
+  border-bottom: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-right: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-top: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
+  border-left: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
 }
 
 .tetris-cell-7 {
-  --color: magenta;
-  --darkColor: rgb(180, 0, 180);
-  --lightColor: rgb(255, 98, 255);
-  --borderwidth: 7px;
-  background-color: var(--color);
-  border-bottom: var(--borderwidth) solid var(--darkColor);
-  border-right: var(--borderwidth) solid var(--darkColor);
-  border-top: var(--borderwidth) solid var(--lightColor);
-  border-left: var(--borderwidth) solid var(--lightColor);
+  --hue: 300;
+  background-color: hsl(var(--hue), var(--saturation), var(--reg));
+  border-bottom: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-right: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--dark));
+  border-top: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
+  border-left: var(--borderwidth) solid hsl(var(--hue), var(--saturation), var(--light));
 }
 
 .tetris-score-label {

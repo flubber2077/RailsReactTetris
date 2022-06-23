@@ -1,19 +1,21 @@
 import React, {useState} from 'react'
+import Auth from './Auth'
 
-function Auth({setUser, setIsAuthenticated}) {
+
+function Login({setUser,setIsAuthenticated}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
    
-    const [errors, setErrors] = useState([])
+    const [error, setError] = useState([])
 
     function onSubmit(e){
         e.preventDefault()
         const user = {
-            name: username,
+            username: username,
             password
         }
        
-        fetch(`/users`,{
+        fetch(`/login`,{
           method:'POST',
           headers:{'Content-Type': 'application/json'},
           body:JSON.stringify(user)
@@ -28,29 +30,32 @@ function Auth({setUser, setIsAuthenticated}) {
             
           } else {
             res.json()
-            .then(json => setErrors(json.errors))
+            .then(json => setError(json.error))
           }
         })
     }
     return (
-        <div> 
-        <h2>Sign UP</h2>
+      
+        <> 
+        <h2>Login</h2>
         <form onSubmit={onSubmit}>
         <label>
           Username
+   
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
         </label>
-
         <label>
          Password
+    
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
        
-        <input type="submit" value="Sign up!" />
+        <input type="submit" value="Login!" />
       </form>
-      { Object.keys(errors) ? Object.keys(errors).map((key, index) => <div>{key+': ' + Object.values(errors)[index]}</div>) : null }
-      </div>
+      {error?<div>{error}</div>:null}
+      <Auth setUser={setUser} setIsAuthenticated={setUser}/>
+        </>
     )
 }
 
-export default Auth;
+export default Login;
