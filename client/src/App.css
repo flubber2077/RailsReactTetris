@@ -154,18 +154,26 @@ p {
 
 .tetris-cell-6 {
   --color: red;
-  --darkColor: rgb(0, 182, 182);
-  --lightColor: rgb(175, 255, 255);
+  --darkColor: darkred;
+  --lightColor: pink;
   --borderwidth: 7px;
   background-color: var(--color);
+  border-bottom: var(--borderwidth) solid var(--darkColor);
+  border-right: var(--borderwidth) solid var(--darkColor);
+  border-top: var(--borderwidth) solid var(--lightColor);
+  border-left: var(--borderwidth) solid var(--lightColor);
 }
 
 .tetris-cell-7 {
   --color: magenta;
-  --darkColor: rgb(0, 182, 182);
-  --lightColor: rgb(175, 255, 255);
+  --darkColor: rgb(180, 0, 180);
+  --lightColor: rgb(255, 98, 255);
   --borderwidth: 7px;
   background-color: var(--color);
+  border-bottom: var(--borderwidth) solid var(--darkColor);
+  border-right: var(--borderwidth) solid var(--darkColor);
+  border-top: var(--borderwidth) solid var(--lightColor);
+  border-left: var(--borderwidth) solid var(--lightColor);
 }
 
 .tetris-score-label {
