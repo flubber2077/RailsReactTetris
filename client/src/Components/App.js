@@ -22,11 +22,9 @@ function App() {
           });
         }
       });
-
       fetch('/game')
       .then(res => res.json())
       .then(setGame);
-
 }, [])
 
 function handlePost(obj){
@@ -82,7 +80,6 @@ if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={s
                         <p>Down: Advance</p>
                         <p>Complete rows in order to clear them, clear four rows at once for the most points</p>
                         <p>A block landing on the top row is Game Over</p>
-
                     </div>
                 </Route>
             </Routes>
