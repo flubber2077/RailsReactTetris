@@ -15,7 +15,7 @@ function Auth({ setUser, setIsAuthenticated }) {
       password
     }
 
-    fetch(`/users`, {
+    fetch(`/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user)
