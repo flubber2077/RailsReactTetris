@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Board from "./board.js";
 import NavBar from "./NavBar.js";
+import Leaderboard from "./Leaderboard.js";
 import '../App.css';
 import { Route, Routes, NavLink } from 'react-router-dom';
 import Login from './LogIn'
@@ -65,6 +66,7 @@ function App() {
                 } />
                 <Route path="/game" element={<Board className="tetris-parent" />} />
                 <Route path='/start' element={<StartMenu />} />
+                <Route path='/leaderboard' element={<Leaderboard />} />
             </Routes>
         </div>
     );
