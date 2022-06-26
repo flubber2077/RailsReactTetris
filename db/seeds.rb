@@ -15,7 +15,7 @@ users = User.create([{username: "kate", admin: false}, {username: "dylan", admin
 
 10.times do
     User.create(
-        username: Faker::Name.unique.name,
+        username: Faker::Name.unique.first_name,
         admin: false
         )
 end
