@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     def show
         current_user = User.find_by(id: session[:current_user])
-        render json: current_user
+        render json: current_user, include: :points
     end
 
     def create
