@@ -16,11 +16,12 @@ function Leaderboard({user}) {
             .then((response) => response.json())
             .then((json) => {
                 setUserBoard(json);
-                userBoard.sort(function(a, b) {
-                    return parseFloat(a.point_total) - parseFloat(b.point_total);
-                })
             })
     }, []);
+
+    userBoard.sort(function (a, b) {
+        return b.point_total - a.point_total;
+    })
 
     useEffect(() => {
         fetch('/locations')
