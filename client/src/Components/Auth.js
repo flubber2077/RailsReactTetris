@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
 
 function Auth({ setUser, setIsAuthenticated }) {
   const [username, setUsername] = useState('')
@@ -13,13 +14,13 @@ function Auth({ setUser, setIsAuthenticated }) {
       password
     }
 
-    fetch(`/login`, {
+    fetch(`/users`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user)
     })
       .then(res => {
-        if (res.ok) {
+        if (res.ok){
           res.json()
             .then(user => {
               setUser(user)

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create([{username: "kate", admin: false}, {username: "dylan", admin: false}])
+users = User.create([{username: "kate", password: "12345" admin: false}, {username: "dylan", admin: false}])
 
 locations = Location.create([{location_name: "Ypsilanti, MI"}, {location_name: "Athens, GA"}, {location_name: "Chapel Hill, NC"}])
 

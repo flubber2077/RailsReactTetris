@@ -4,7 +4,8 @@ import NavBar from "./NavBar.js";
 import Leaderboard from "./Leaderboard.js";
 import '../App.css';
 import { Route, Routes, NavLink } from 'react-router-dom';
-import Login from './Login.js'
+import Login from './Login.js';
+import Auth from './Auth.js'
 
 function App() {
 
@@ -61,12 +62,13 @@ function App() {
             <Routes>
                 <Route path="/" element={
                     <div>
-                        <Login />
+                        <Login setUser = {setUser} />
                     </div>
                 } />
                 <Route path="/game" element={<Board className="tetris-parent" />} />
                 <Route path='/start' element={<StartMenu />} />
                 <Route path='/leaderboard' element={<Leaderboard />} />
+                <Route path='/signup' element={<Auth handlePost={handlePost} />} />
             </Routes>
         </div>
     );
