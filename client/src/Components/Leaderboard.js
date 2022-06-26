@@ -1,15 +1,24 @@
 import { useEffect, useState } from 'react'
 import { useBoard } from './useBoard';
 
-function Leaderboard() {
+function Leaderboard({user}) {
     const [userBoard, setUserBoard] = useState([]);
     const [locationBoard, setLocationBoard] = useState([]);
 
+    const locoBoard = locationBoard.map(function (element) {
+        return [element.location_name, element.points.reduce(
+            (total, point) => total + point.point_total
+        )]
+    });
+
     useEffect(() => {
-        fetch('/users')
+        fetch('/points')
             .then((response) => response.json())
             .then((json) => {
                 setUserBoard(json);
+                userBoard.sort(function(a, b) {
+                    return parseFloat(a.point_total) - parseFloat(b.point_total);
+                })
             })
     }, []);
 
@@ -28,8 +37,8 @@ function Leaderboard() {
         var tr = document.createElement("tr");
         var td1 = document.createElement("td");
         var td2 = document.createElement("td");
-        var username = document.createTextNode(userBoard[i].username);
-        var score = document.createTextNode("0");
+        var username = document.createTextNode(user[userBoard[i].user_id].username);
+        var score = document.createTextNode(userBoard[i].point_total);
         td1.appendChild(username);
         td2.appendChild(score);
         tr.appendChild(td1);

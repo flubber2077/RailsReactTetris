@@ -1,7 +1,7 @@
 class PointsController < ApplicationController
 
     def index
-        render json: Point.all
+        render json: Point.all, include: [:user]
     end
 
     def show

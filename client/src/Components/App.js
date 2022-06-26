@@ -67,7 +67,7 @@ function App() {
                 } />
                 <Route path="/game" element={<Board className="tetris-parent" />} />
                 <Route path='/start' element={<StartMenu />} />
-                <Route path='/leaderboard' element={<Leaderboard />} />
+                <Route path='/leaderboard' element={<Leaderboard user={user}/>} />
                 <Route path='/signup' element={<Auth handlePost={handlePost} />} />
             </Routes>
         </div>

@@ -1,3 +1,3 @@
 class PointSerializer < ActiveModel::Serializer
-  attributes :id, :point_total
+  attributes :point_total, :user_id
 end
