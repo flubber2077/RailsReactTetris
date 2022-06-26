@@ -3,7 +3,7 @@ import Board from "./board.js";
 import NavBar from "./NavBar.js";
 import '../App.css';
 import { Route, Routes, NavLink } from 'react-router-dom';
-import Login from './LogIn'
+import Login from './Login.js'
 
 function App() {
 
@@ -11,41 +11,41 @@ function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
 
-    // useEffect(() => {
-    //     fetch('/authorized_user')
-    //         .then((res) => {
-    //             if (res.ok) {
-    //                 res.json()
-    //                     .then((user) => {
-    //                         setIsAuthenticated(true);
-    //                         setUser(user);
-    //                     });
-    //             }
-    //         });
-    //     fetch('/game')
-    //         .then(res => res.json())
-    //         .then();
-    // }, [])
+    useEffect(() => {
+        fetch('/users')
+            .then((res) => {
+                if (res.ok) {
+                    res.json()
+                        .then((user) => {
+                            setIsAuthenticated(true);
+                            setUser(user);
+                        });
+                }
+            });
+        fetch('/users')
+            .then(res => res.json())
+            .then();
+    }, [])
 
-    // function handlePost(obj) {
-    //     fetch('/game', {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(obj)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.errors) {
-    //                 setErrors(data.errors)
-    //             } else {
-    //                 return (<StartMenu />)
-    //             }
-    //         })
-    // }
+    function handlePost(obj) {
+        fetch('/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(obj)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.errors) {
+                    setErrors(data.errors)
+                } else {
+                    return (<StartMenu />)
+                }
+            })
+    }
 
 
 
-    // if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
+    if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
 
 
     return (
@@ -65,6 +65,7 @@ function App() {
                 } />
                 <Route path="/game" element={<Board className="tetris-parent" />} />
                 <Route path='/start' element={<StartMenu />} />
+                
             </Routes>
         </div>
     );
