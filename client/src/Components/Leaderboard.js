@@ -29,8 +29,12 @@ function Leaderboard() {
         var td1 = document.createElement("td");
         var td2 = document.createElement("td");
         var username = document.createTextNode(userBoard[i].username);
+        var score = document.createTextNode("0");
         td1.appendChild(username);
+        td2.appendChild(score);
         tr.appendChild(td1);
+        tr.appendChild(td2);
+    
         userTableBody.appendChild(tr);
         userTable.appendChild(userTableBody);
     }
@@ -43,8 +47,12 @@ function Leaderboard() {
         var td1 = document.createElement("td");
         var td2 = document.createElement("td");
         var location = document.createTextNode(locationBoard[i].location_name);
+        var score = document.createTextNode("0");
         td1.appendChild(location);
+        td2.appendChild(score);
         tr.appendChild(td1);
+        tr.appendChild(td2);
+
         leaderTableBody.appendChild(tr);
         leaderTable.appendChild(leaderTableBody);
     }
