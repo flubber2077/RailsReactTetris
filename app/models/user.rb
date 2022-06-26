@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-    has_many :locations
-    has_many :points, through: :locations
+    has_many :points
+    has_many :locations, through: :points
 end
