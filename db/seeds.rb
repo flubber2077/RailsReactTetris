@@ -14,22 +14,28 @@ Location.destroy_all
 users = User.create([{username: "kate", admin: false}, {username: "dylan", admin: false}])
 
 10.times do
-    User.create(
+    User.create!(
         username: Faker::Name.unique.first_name,
         admin: false
         )
 end
 
+puts "done seeding users"
+
+8.times do
+    Location.create!(
+        location_name: Faker::Address.unique.city
+    )
+end
+
+puts "done seeding locations"
+
 30.times do
-    Point.create(
+    Point.create!(
         point_total: Faker::Number.between(from: 0, to: 4000),
         user_id: Faker::Number.between(from: 1, to: 10),
         location_id: Faker::Number.between(from: 1, to: 8)
     )
 end
 
-8.times do
-    Location.create(
-        location_name: Faker::Address.unique.city
-    )
-end
+puts "done seeding points"
