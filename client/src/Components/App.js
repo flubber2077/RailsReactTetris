@@ -65,7 +65,7 @@ function App() {
                         <Login setUser = {setUser} error={'please login'} setIsAuthenticated={setIsAuthenticated} />
                     </div>
                 } />
-                <Route path="/game" element={<Board className="tetris-parent" />} />
+                <Route path="/game" element={<Board className="tetris-parent" user={user}/>} />
                 <Route path='/' element={<StartMenu />} />
                 <Route path='/leaderboard' element={<Leaderboard user={user}/>} />
                 <Route path='/signup' element={<Auth handlePost={handlePost} />} />

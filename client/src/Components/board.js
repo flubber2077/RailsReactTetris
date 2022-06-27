@@ -1,9 +1,9 @@
 import React, { memo, useEffect, useRef } from 'react';
 import {useBoard} from "./useBoard";
 
-const Board = () => {
+const Board = ({user}) => {
 
-    const [display, score, onKeyDown, lineCount] = useBoard();
+    const [display, score, onKeyDown, lineCount] = useBoard(user);
     const eBoard = useRef();
 
     const level = Math.floor(lineCount/10);

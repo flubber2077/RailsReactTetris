@@ -36,13 +36,14 @@ function createEmptyScene() {
     return Array.from(Array(ROW_COUNT), () => Array(COLUMN_COUNT).fill(0));
 }
 
-export function useBoard() {
+export function useBoard(user) {
     const [scene, setScene] = useState(() => createEmptyScene());
     const [shape, setShape] = useState(() => randomShape());
     const [position, setPosition] = useState({ x: 4, y: 0 });
     const [display, setDisplay] = useState(() => mergeIntoStage(scene, shape, position));
     const [score, setScore] = useState(0);
     const [lineCount, setLineCount] = useState(0);
+    const userLocal= user;
 
     useEffect(updateDisplay, [scene, shape, position]);
     useEffect(removeFullLines, [scene]);
@@ -155,7 +156,18 @@ export function useBoard() {
 
         if (!topRowEmpty) {
             //Send score and info to back end here
-            alert("Game Over")
+            let location = prompt("Game Over","Enter Current Town or City");
+            fetch('/points', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'
+            },
+                body: JSON.stringify({
+                    point_total: score,
+                    user_id: userLocal.id
+                })
+
+            });
+
             reset();
         }
 

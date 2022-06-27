@@ -9,6 +9,11 @@ class PointsController < ApplicationController
         render json: point, include: [:user, :location]
     end
 
+    def create
+        point = Point.create!(point_params)
+        render json: point, status: :created
+    end
+
     def update
         point = Point.find(params[:id])
         point.update!(point_params)
@@ -18,7 +23,7 @@ class PointsController < ApplicationController
     private
 
     def point_params
-        params.permit(:points_total)
+        params.permit(:points_total, :user_id, :location_id)
     end
 
 
