@@ -43,11 +43,11 @@ export function useBoard(user) {
     const [display, setDisplay] = useState(() => mergeIntoStage(scene, shape, position));
     const [score, setScore] = useState(0);
     const [lineCount, setLineCount] = useState(0);
-    const userLocal= user;
+    const userLocal = user;
 
     useEffect(updateDisplay, [scene, shape, position]);
     useEffect(removeFullLines, [scene]);
-    useInterval(tick, 500-(Math.floor(lineCount/10)*30));
+    useInterval(tick, 500 - (Math.floor(lineCount / 10) * 30));
 
     function updateDisplay() {
         const newDisplay = mergeIntoStage(scene, shape, position);
@@ -156,16 +156,19 @@ export function useBoard(user) {
 
         if (!topRowEmpty) {
             //Send score and info to back end here
-            let location = prompt("Game Over","Enter Current Town or City");
+            let location = prompt("Game Over", "Enter Current Town or City");
+            console.log({ location, userLocal, score })
+            var data = JSON.stringify({
+                point_total: 68,
+                user_id: 0
+            })
+            console.log(data)
             fetch('/points', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'
-            },
-                body: JSON.stringify({
-                    point_total: score,
-                    user_id: userLocal.id
-                })
-
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: data
             });
 
             reset();

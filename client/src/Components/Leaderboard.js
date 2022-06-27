@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useBoard } from './useBoard';
 
-function Leaderboard({user}) {
+function Leaderboard({ user }) {
     const [userBoard, setUserBoard] = useState([]);
     const [locationBoard, setLocationBoard] = useState([]);
 
@@ -10,6 +10,18 @@ function Leaderboard({user}) {
     //         (total, point) => total + point.point_total
     //     )]
     // });
+    var locationLeaderBoard = [];
+    for (var i = 0; i < locationBoard.length; i++) {
+        var location_points = 0;
+        for (var j = 0; j < locationBoard[i].points.length; j++) {
+            location_points += locationBoard[i].points[j].point_total;
+        }
+        locationLeaderBoard.push({
+            location_name: locationBoard[i].location_name,
+            points: location_points
+        })
+    }
+    console.log(locationLeaderBoard)
 
     useEffect(() => {
         fetch('/points')
@@ -21,6 +33,10 @@ function Leaderboard({user}) {
 
     userBoard.sort(function (a, b) {
         return b.point_total - a.point_total;
+    })
+
+    locationLeaderBoard.sort(function (a, b) {
+        return b.points - a.points;
     })
 
     useEffect(() => {
@@ -44,7 +60,7 @@ function Leaderboard({user}) {
         td2.appendChild(score);
         tr.appendChild(td1);
         tr.appendChild(td2);
-    
+
         userTableBody.appendChild(tr);
         userTable.appendChild(userTableBody);
     }
@@ -56,8 +72,8 @@ function Leaderboard({user}) {
         var tr = document.createElement("tr");
         var td1 = document.createElement("td");
         var td2 = document.createElement("td");
-        var location = document.createTextNode(locationBoard[i].location_name);
-        var score = document.createTextNode("0");
+        var location = document.createTextNode(locationLeaderBoard[i].location_name);
+        var score = document.createTextNode(locationLeaderBoard[i].points);
         td1.appendChild(location);
         td2.appendChild(score);
         tr.appendChild(td1);

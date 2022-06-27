@@ -11,7 +11,7 @@ Point.destroy_all
 Location.destroy_all
 
 
-users = User.create([{username: "kate", password: "12345", admin: false}, {username: "dylan", admin: false}])
+users = User.create([{username: "TestUser", password: "password", admin:false}, {username: "kate", password: "12345", admin: false}, {username: "dylan", admin: false}])
 
 10.times do
     User.create!(
