@@ -5,11 +5,11 @@ function Leaderboard({user}) {
     const [userBoard, setUserBoard] = useState([]);
     const [locationBoard, setLocationBoard] = useState([]);
 
-    const locoBoard = locationBoard.map(function (element) {
-        return [element.location_name, element.points.reduce(
-            (total, point) => total + point.point_total
-        )]
-    });
+    // const locoBoard = locationBoard.map(function (element) {
+    //     return [element.location_name, element.points.reduce(
+    //         (total, point) => total + point.point_total
+    //     )]
+    // });
 
     useEffect(() => {
         fetch('/points')

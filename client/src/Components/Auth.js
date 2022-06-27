@@ -10,7 +10,8 @@ function Auth({ setUser, setIsAuthenticated }) {
   function onSubmit(e) {
     e.preventDefault()
     const user = {
-      username: username
+      username: username,
+      password: password
     }
 
     fetch(`/users`, {

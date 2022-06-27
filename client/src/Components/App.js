@@ -62,7 +62,7 @@ function App() {
             <Routes>
                 <Route path="/" element={
                     <div>
-                        <Login setUser = {setUser} />
+                        <Login setUser = {setUser} error={'please login'} setIsAuthenticated={setIsAuthenticated} />
                     </div>
                 } />
                 <Route path="/game" element={<Board className="tetris-parent" />} />
