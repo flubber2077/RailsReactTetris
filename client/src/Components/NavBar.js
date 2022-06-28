@@ -7,7 +7,7 @@ function NavBar() {
         <nav className="navbar">
             <ul>
                 <li>
-                    <NavLink to='/game'>Game</NavLink>
+                    <NavLink to='/'>Game</NavLink>
                 </li>
                 <li>
                     <NavLink to='/leaderboard'>Leaderboard</NavLink>

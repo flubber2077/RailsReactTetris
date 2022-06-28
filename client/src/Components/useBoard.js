@@ -116,6 +116,8 @@ export function useBoard(user) {
             case 4:
                 newPoints = 1200;
                 break;
+            default:
+                newPoints = 0;
         }
         return newPoints;
     }
