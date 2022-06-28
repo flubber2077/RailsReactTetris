@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <>
+        <div className="about">
             <div>
                 <h2>
                     About tetr.js
@@ -27,6 +27,6 @@ export default function About() {
                     is a developer from Michigan with a background in marine biology. The first Tetris played was a brother's version for Game Boy.
                 </p>
             </div>
-        </>
+        </div>
     )
 }
