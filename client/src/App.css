@@ -8,7 +8,6 @@
 }
 
 body {
-  font-size: 62.5%;
   font-family: 'Press Start 2P', cursive;
   font-smooth: never;
   -webkit-font-smoothing: none;
@@ -16,15 +15,16 @@ body {
 }
 
 h1 {
-  font-size: 5em;
+  font-size: 3em;
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 p {
   font-size: 1em;
+  line-height: 1.5;
 }
 
 .navbar {

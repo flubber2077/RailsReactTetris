@@ -6,6 +6,7 @@ import '../App.css';
 import { Route, Routes, NavLink } from 'react-router-dom';
 import Login from './Login.js';
 import Auth from './Auth.js'
+import About from './About.js';
 
 function App() {
 
@@ -69,6 +70,7 @@ function App() {
                 <Route path='/' element={<StartMenu />} />
                 <Route path='/leaderboard' element={<Leaderboard user={user}/>} />
                 <Route path='/signup' element={<Auth handlePost={handlePost} />} />
+                <Route path='/about' element={<About />} />
             </Routes>
         </div>
     );
