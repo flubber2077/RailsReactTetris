@@ -161,7 +161,7 @@ export function useBoard(user) {
             let location = prompt("Game Over", "Enter Current Town or City");
             console.log({ location, userLocal, score })
             var data = JSON.stringify({
-                point_total: 68,
+                point_total: score,
                 user_id: 0
             })
             console.log(data)
