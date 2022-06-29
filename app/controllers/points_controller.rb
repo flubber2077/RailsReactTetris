@@ -23,7 +23,7 @@ class PointsController < ApplicationController
     private
 
     def point_params
-        params.permit(:point_total, :user_id, :location_id)
+        params.permit(:point_total, :user_id, :location_id, :username)
     end
 
 

@@ -10,45 +10,45 @@ import About from './About.js';
 
 function App() {
 
-    const [errors, setErrors] = useState(false)
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [user, setUser] = useState(null);
+    // const [errors, setErrors] = useState(false)
+    // const [isAuthenticated, setIsAuthenticated] = useState(false);
+    // const [user, setUser] = useState(null);
 
-    useEffect(() => {
-        fetch('/users')
-            .then((res) => {
-                if (res.ok) {
-                    res.json()
-                        .then((user) => {
-                            setIsAuthenticated(true);
-                            setUser(user);
-                        });
-                }
-            });
-        fetch('/users')
-            .then(res => res.json())
-            .then();
-    }, [])
+    // useEffect(() => {
+    //     fetch('/users')
+    //         .then((res) => {
+    //             if (res.ok) {
+    //                 res.json()
+    //                     .then((user) => {
+    //                         setIsAuthenticated(true);
+    //                         setUser(user);
+    //                     });
+    //             }
+    //         });
+    //     fetch('/users')
+    //         .then(res => res.json())
+    //         .then();
+    // }, [])
 
-    function handlePost(obj) {
-        fetch('/users', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(obj)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.errors) {
-                    setErrors(data.errors)
-                } else {
-                    return (<StartMenu />)
-                }
-            })
-    }
+    // function handlePost(obj) {
+    //     fetch('/users', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(obj)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.errors) {
+    //                 setErrors(data.errors)
+    //             } else {
+    //                 return (<StartMenu />)
+    //             }
+    //         })
+    // }
 
 
 
-    if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
+    // if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
 
 
     return (
@@ -61,15 +61,13 @@ function App() {
 
 
             <Routes>
-                <Route path="/login" element={
-                    <div>
+                {/* <Route path="/login" element={
                         <Login setUser = {setUser} error={'please login'} setIsAuthenticated={setIsAuthenticated} />
-                    </div>
-                } />
-                <Route path="/game" element={<Board className="tetris-parent" user={user}/>} />
+                } /> */}
+                <Route path="/game" element={<Board className="tetris-parent"/>} />
                 <Route path='/' element={<StartMenu />} />
-                <Route path='/leaderboard' element={<Leaderboard user={user}/>} />
-                <Route path='/signup' element={<Auth handlePost={handlePost} />} />
+                <Route path='/leaderboard' element={<Leaderboard/>} />
+                {/* <Route path='/signup' element={<Auth handlePost={handlePost} />} /> */}
                 <Route path='/about' element={<About />} />
             </Routes>
         </div>

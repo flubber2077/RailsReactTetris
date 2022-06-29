@@ -158,11 +158,10 @@ export function useBoard(user) {
 
         if (!topRowEmpty) {
             //Send score and info to back end here
-            let location = prompt("Game Over", "Enter Current Town or City");
-            console.log({ location, userLocal, score })
+            let name = prompt("Game Over", "Enter Name");
             var data = JSON.stringify({
                 point_total: score,
-                user_id: 0
+                username: name
             })
             console.log(data)
             fetch('/points', {

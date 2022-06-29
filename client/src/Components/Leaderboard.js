@@ -21,12 +21,16 @@ function Leaderboard({ user }) {
 
     for (var i = 0; i < userBoard.length; i++) {
         var tr = document.createElement("tr");
+        var tdnum = document.createElement("td");
         var td1 = document.createElement("td");
         var td2 = document.createElement("td");
-        var username = document.createTextNode(user[userBoard[i].user_id].username);
+        var place = document.createTextNode(i+1);
+        var username = document.createTextNode(userBoard[i].username);
         var score = document.createTextNode(userBoard[i].point_total);
+        tdnum.appendChild(place);
         td1.appendChild(username);
         td2.appendChild(score);
+        tr.appendChild(tdnum);
         tr.appendChild(td1);
         tr.appendChild(td2);
 
@@ -40,11 +44,12 @@ function Leaderboard({ user }) {
             <div id='tableContainer'>
                 <table id="userboard" className="table">
                     <tr>
+                        <th></th>
                         <th>Users</th>
                         <th>Points</th>
                     </tr>
                 </table>
-                <LocationLeaderboard/>
+                {/* <LocationLeaderboard/> */}
             </div>
         </>
     )

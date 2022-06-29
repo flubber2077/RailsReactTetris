@@ -15,9 +15,9 @@ function NavBar() {
                 <li>
                     <NavLink to='/about'>About</NavLink>
                 </li>
-                <li>
+                {/* <li>
                     <NavLink to='/'>Login</NavLink>
-                </li>
+                </li> */}
             </ul>
         </nav>
     );
