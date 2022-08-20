@@ -19,23 +19,26 @@ function Leaderboard({ user }) {
     var userTable = document.getElementById('userboard');
     var userTableBody = document.createElement("tbody");
 
+    var position = 1;
     for (var i = 0; i < userBoard.length; i++) {
-        var tr = document.createElement("tr");
-        var tdnum = document.createElement("td");
-        var td1 = document.createElement("td");
-        var td2 = document.createElement("td");
-        var place = document.createTextNode(i+1);
-        var username = document.createTextNode(userBoard[i].username);
-        var score = document.createTextNode(userBoard[i].point_total);
-        tdnum.appendChild(place);
-        td1.appendChild(username);
-        td2.appendChild(score);
-        tr.appendChild(tdnum);
-        tr.appendChild(td1);
-        tr.appendChild(td2);
+        if (userBoard[i].username != null && userBoard[i].point_total != 0) {
+            var tr = document.createElement("tr");
+            var tdnum = document.createElement("td");
+            var td1 = document.createElement("td");
+            var td2 = document.createElement("td");
+            var place = document.createTextNode(position++);
+            var username = document.createTextNode(userBoard[i].username);
+            var score = document.createTextNode(userBoard[i].point_total);
+            tdnum.appendChild(place);
+            td1.appendChild(username);
+            td2.appendChild(score);
+            tr.appendChild(tdnum);
+            tr.appendChild(td1);
+            tr.appendChild(td2);
 
-        userTableBody.appendChild(tr);
-        userTable.appendChild(userTableBody);
+            userTableBody.appendChild(tr);
+            userTable.appendChild(userTableBody);
+        }
     }
 
     return (
