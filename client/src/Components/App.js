@@ -64,11 +64,11 @@ function App() {
                 {/* <Route path="/login" element={
                         <Login setUser = {setUser} error={'please login'} setIsAuthenticated={setIsAuthenticated} />
                 } /> */}
-                <Route path="/#/game" element={<Board className="tetris-parent"/>} />
+                <Route path="/game" element={<Board className="tetris-parent"/>} />
                 <Route path='/' element={<StartMenu />} />
-                <Route path='/#/leaderboard' element={<Leaderboard/>} />
+                <Route path='/leaderboard' element={<Leaderboard/>} />
                 {/* <Route path='/signup' element={<Auth handlePost={handlePost} />} /> */}
-                <Route path='/#/about' element={<About />} />
+                <Route path='/about' element={<About />} />
             </Routes>
         </div>
     );
