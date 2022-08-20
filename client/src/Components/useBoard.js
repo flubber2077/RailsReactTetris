@@ -47,7 +47,7 @@ export function useBoard(user) {
 
     useEffect(updateDisplay, [scene, shape, position]);
     useEffect(removeFullLines, [scene]);
-    useInterval(tick, 500 - (Math.floor(lineCount / 10) * 30));
+    useInterval(tick, 500 * Math.pow(.9,Math.floor(lineCount / 10)));
 
     function updateDisplay() {
         const newDisplay = mergeIntoStage(scene, shape, position);
