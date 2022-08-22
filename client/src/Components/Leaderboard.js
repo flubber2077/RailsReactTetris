@@ -52,7 +52,6 @@ function Leaderboard({ user }) {
                         <th>Points</th>
                     </tr>
                 </table>
-                {/* <LocationLeaderboard/> */}
             </div>
         </>
     )
