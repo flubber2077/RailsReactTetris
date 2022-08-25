@@ -1,11 +1,8 @@
-import { useEffect, useState } from 'react'
 import Board from "./board.js";
 import NavBar from "./NavBar.js";
 import Leaderboard from "./Leaderboard.js";
 import '../App.css';
 import { Route, Routes, NavLink } from 'react-router-dom';
-import Login from './Login.js';
-import Auth from './Auth.js'
 import About from './About.js';
 
 function App() {
@@ -23,7 +20,6 @@ function App() {
                 <Route path="/game" element={<Board className="tetris-parent"/>} />
                 <Route path='/' element={<StartMenu />} />
                 <Route path='/leaderboard' element={<Leaderboard/>} />
-                {/* <Route path='/signup' element={<Auth handlePost={handlePost} />} /> */}
                 <Route path='/about' element={<About />} />
             </Routes>
         </div>
