@@ -1,4 +1,4 @@
-https://tetr-js.herokuapp.com/
+https://tetrjs.onrender.com/
 
 ## Description
 
